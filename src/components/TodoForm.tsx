@@ -1,31 +1,33 @@
-import { useRef } from "react";
+import React, { useState } from "react";
 import { useAppDispatch } from "../hooks";
 import { todosActions } from "../store/todos";
+import classes from "./TodoForm.module.css";
+import icon from "../assets/img/down-chevron.png";
 const TodoForm = () => {
   const dispatch = useAppDispatch();
-  const taskInputRef = useRef<HTMLInputElement>(null);
-
+  const [taskInputValue, setTaskInputValue] = useState("");
+  const isTaskInputValid = taskInputValue.trim() !== "";
   const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    const enteredText = taskInputRef.current!.value.trim();
-    if (enteredText === "") {
-      // TODO add animation
-      console.log("Wrong task!");
-      return;
-    }
+    const enteredText = taskInputValue.trim();
     dispatch(todosActions.add(enteredText));
-    taskInputRef.current!.value = "";
+    setTaskInputValue("");
   };
-
+  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setTaskInputValue(event.target.value);
+  };
   return (
-    <form onSubmit={submitHandler}>
-      <button type="submit">{/* TODO add icon */}Add</button>
+    <form onSubmit={submitHandler} className={classes.form}>
+      <button disabled={!isTaskInputValid} type="submit">
+        <img src={icon} alt="Add" />
+      </button>
       <input
         type="text"
         id="task"
         autoComplete="off"
         placeholder="What needs to be done?"
-        ref={taskInputRef}
+        onChange={changeHandler}
+        value={taskInputValue}
       />
     </form>
   );

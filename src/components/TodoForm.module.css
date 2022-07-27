@@ -1,0 +1,40 @@
+.form {
+  display: flex;
+  border-bottom: 1px solid#efefef;
+  box-shadow: inset 0px -7px 10px -9px rgba(0, 0, 0, 0.15);
+  /* box-shadow: 0 0.5rem 0.5rem rgba(0, 0, 0, 0.15); */
+}
+.form button {
+  border: none;
+  background-color: #fefefe;
+  margin: 1rem;
+  cursor: pointer;
+}
+.form button img {
+  height: 2rem;
+  opacity: 0.6;
+}
+.form button:disabled {
+  opacity: 0.2;
+  cursor: auto;
+}
+.form input {
+  border: none;
+  height: 2rem;
+  margin: 1.4rem 1rem 0.6rem 1rem;
+  flex-grow: 1;
+  font-family: "Roboto", sans-serif;
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: #4d4d4d;
+}
+.form input:focus {
+  outline: none;
+}
+.form input::placeholder {
+  font-family: "Roboto", sans-serif;
+  font-weight: 100;
+  font-size: 1.7rem;
+  font-style: italic;
+  color: #e6e6e6;
+}

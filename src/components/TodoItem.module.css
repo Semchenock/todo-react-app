@@ -1,0 +1,17 @@
+.todoItem {
+  display: flex;
+  height: 4rem;
+  border-bottom: 2px solid#efefef;
+}
+.todoItem p {
+  flex-grow: 1;
+  font-weight: 300;
+  font-size: 1.7rem;
+  color: #4d4d4d;
+  height: 2rem;
+  margin: 1rem;
+}
+.done p {
+  text-decoration: line-through;
+  color: #e6e6e6;
+}

@@ -1,0 +1,36 @@
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  height: 3rem;
+}
+.navigation span {
+  font-size: 1.2rem;
+  color: #8d8d8d;
+  margin-left: 1rem;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.clear,
+.filter button {
+  background-color: transparent;
+  font-size: 1.2rem;
+  color: #8d8d8d;
+  font-family: "Roboto", sans-serif;
+}
+.clear {
+  margin-right: 1rem;
+}
+.filter {
+  display: flex;
+  align-items: center;
+}
+.filter button {
+  padding: 0.1rem 0.3rem;
+}
+.active {
+  border: 1px solid #e9d9d8;
+  border-radius: 2px;
+}
+button {
+  cursor: pointer;
+}

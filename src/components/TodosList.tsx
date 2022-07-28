@@ -1,6 +1,7 @@
 import { useAppSelector } from "../hooks";
 import Todo from "../models/todo";
 import TodoItem from "./TodoItem";
+import classes from "./TodosList.module.css";
 const TodosList = () => {
   const allTodos = useAppSelector((state) => state.todos.allTodos);
   const shownType = useAppSelector((state) => state.todos.shownType);
@@ -23,7 +24,7 @@ const TodosList = () => {
   });
 
   return (
-    <ul>
+    <ul className={classes.todosList}>
       {shownTodos.map((item) => {
         return <TodoItem key={item.id} item={item} />;
       })}

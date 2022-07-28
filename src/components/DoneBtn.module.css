@@ -1,0 +1,14 @@
+.checkBtn {
+  border: none;
+  background-color: transparent;
+  margin: 1rem;
+  cursor: pointer;
+}
+.checkBtn img {
+  height: 2rem;
+  opacity: 0.2;
+}
+.done img {
+  filter: invert(74%) sepia(16%) saturate(687%) hue-rotate(116deg)
+    brightness(93%) contrast(92%);
+}

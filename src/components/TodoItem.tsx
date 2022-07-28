@@ -5,7 +5,6 @@ import DoneBtn from "./DoneBtn";
 import classes from "./TodoItem.module.css";
 
 const TodoItem: React.FC<{ item: Todo }> = (props) => {
-  // TODO add styling togling
   const dispatch = useAppDispatch();
   const toggleTaskHandler = () => {
     dispatch(todosActions.toggleTask(props.item.id));
@@ -17,7 +16,7 @@ const TodoItem: React.FC<{ item: Todo }> = (props) => {
   return (
     <li className={todoItemStyle}>
       <DoneBtn isDone={props.item.isDone} clickHandler={toggleTaskHandler} />
-      <p>{props.item.text}</p>
+      <p data-testid="task">{props.item.text}</p>
     </li>
   );
 };

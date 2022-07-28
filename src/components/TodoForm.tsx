@@ -18,7 +18,7 @@ const TodoForm = () => {
   };
   return (
     <form onSubmit={submitHandler} className={classes.form}>
-      <button disabled={!isTaskInputValid} type="submit">
+      <button disabled={!isTaskInputValid} type="submit" data-testid="add">
         <img src={icon} alt="Add" />
       </button>
       <input

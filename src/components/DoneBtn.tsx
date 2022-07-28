@@ -10,7 +10,11 @@ const DoneBtn: React.FC<{
   const imgSrc = props.isDone ? checkMark : circle;
   const imgAlt = props.isDone ? "done" : "not done";
   return (
-    <button className={imgStyle} onClick={props.clickHandler}>
+    <button
+      className={imgStyle}
+      onClick={props.clickHandler}
+      data-testid="complite togler"
+    >
       <img src={imgSrc} alt={imgAlt} />
     </button>
   );

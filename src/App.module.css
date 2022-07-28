@@ -9,6 +9,7 @@
 }
 .container {
   width: 60%;
+  max-width: 800px;
   background-color: #ffffff;
   margin: auto;
   margin-bottom: 3rem;

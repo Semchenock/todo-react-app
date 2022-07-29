@@ -18,13 +18,14 @@
   cursor: auto;
 }
 .form input {
+  font-family: "Roboto", sans-serif;
   border: none;
-  height: 2rem;
   margin: 1.4rem 1rem 0.6rem 1rem;
   flex-grow: 1;
   font-weight: 300;
   font-size: 1.7rem;
   color: #4d4d4d;
+  min-width: 120px;
 }
 .form input:focus {
   outline: none;
@@ -35,4 +36,15 @@
   font-size: 1.7rem;
   font-style: italic;
   color: #e6e6e6;
+}
+.shortText {
+  display: none;
+}
+@media only screen and (max-width: 550px) {
+  .foolText {
+    display: none;
+  }
+  .shortText {
+    display: block;
+  }
 }

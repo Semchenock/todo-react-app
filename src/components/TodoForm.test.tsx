@@ -3,8 +3,8 @@ import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Provider } from "react-redux";
 import store from "../store";
-import TodoForm from "./TodoForm";
-import TodosList from "./TodosList";
+import TodoForm from "../components/TodoForm";
+import TodosList from "../components/TodosList";
 
 const render = (component: React.ReactNode) => {
   rtlRender(<Provider store={store}>{component}</Provider>);

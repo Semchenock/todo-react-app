@@ -22,10 +22,20 @@ const TodoForm = () => {
         <img src={icon} alt="Add" />
       </button>
       <input
+        className={classes.foolText}
         type="text"
         id="task"
         autoComplete="off"
         placeholder="What needs to be done?"
+        onChange={changeHandler}
+        value={taskInputValue}
+      />
+      <input
+        className={classes.shortText}
+        type="text"
+        id="task"
+        autoComplete="off"
+        placeholder="New todo..."
         onChange={changeHandler}
         value={taskInputValue}
       />

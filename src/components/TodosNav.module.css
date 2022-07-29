@@ -31,6 +31,24 @@
   border: 1px solid #e9d9d8;
   border-radius: 2px;
 }
+.shortText {
+  display: none;
+}
 button {
   cursor: pointer;
+}
+
+@media only screen and (max-width: 550px) {
+  .navigation span {
+    display: none;
+  }
+  .filter {
+    margin-left: 1rem;
+  }
+  .foolText {
+    display: none;
+  }
+  .shortText {
+    display: block;
+  }
 }

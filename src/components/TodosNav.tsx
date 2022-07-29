@@ -46,7 +46,8 @@ const TodosNav = () => {
         </button>
       </div>
       <button className={classes.clear} onClick={clearComplitedHandler}>
-        Clear complited
+        <label className={classes.foolText}>Clear complited</label>
+        <label className={classes.shortText}>Clear</label>
       </button>
     </nav>
   );

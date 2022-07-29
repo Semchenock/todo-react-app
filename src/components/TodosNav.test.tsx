@@ -36,20 +36,40 @@ describe("TodosNav component", () => {
     const complitedTasks = screen.getAllByTestId("task");
     expect(complitedTasks).toHaveLength(1);
   });
-  //   test("active tasks shown properly", () => {
-  //     render(
-  //       <>
-  //         <TodosList />
-  //         <TodosNav />
-  //       </>
-  //     );
-  //     const btns = screen.getAllByTestId("complite togler");
-  //     const activeBtn = screen.getByText("Active");
-  //     const tasks = screen.getAllByTestId("task");
-  //     userEvent.click(btns[0]);
-  //     expect(tasks).toHaveLength(3);
-  //     userEvent.click(activeBtn);
-  //     const activeTasks = screen.getAllByTestId("task");
-  //     expect(activeTasks).toHaveLength(2);
-  //   });
+  test("active tasks shown properly", () => {
+    render(
+      <>
+        <TodosList />
+        <TodosNav />
+      </>
+    );
+    const activeBtn = screen.getByText("Active");
+    userEvent.click(activeBtn);
+    const activeTasks = screen.getAllByTestId("task");
+    expect(activeTasks).toHaveLength(2);
+  });
+  test("left active shown properly", () => {
+    render(
+      <>
+        <TodosList />
+        <TodosNav />
+      </>
+    );
+    const leftActive = screen.getByText("2 items left");
+    expect(leftActive).toBeInTheDocument();
+  });
+  test("complited items deleted when button was clicked", () => {
+    render(
+      <>
+        <TodosList />
+        <TodosNav />
+      </>
+    );
+    const cleanBtn = screen.getByText("Clear complited");
+    const allBtn = screen.getByText("All");
+    userEvent.click(cleanBtn);
+    userEvent.click(allBtn);
+    const leftTasks = screen.getAllByTestId("task");
+    expect(leftTasks).toHaveLength(2);
+  });
 });

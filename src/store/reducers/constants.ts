@@ -1,4 +1,4 @@
-import { Todo } from "@models/index";
+import { Todo } from "models/index";
 
 /** placeholder for default state */
 export const DUMMY_TODOS = [

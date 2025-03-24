@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { useDispatch } from "react-redux";
 
-import { todosActions } from "@store/actions";
-import { Todo } from "@models/index";
+import { todosActions } from "store/actions";
+import { Todo } from "models/index";
 
 import { DoneButton } from "./DoneButton";
 import classes from "./TodoItem.module.css";

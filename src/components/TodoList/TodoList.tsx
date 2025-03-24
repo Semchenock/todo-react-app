@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { useSelector } from "react-redux";
 
-import { selectAllTodos, selectShownType } from "@store/selectors";
-import { ShownType } from "@store/types";
-import { Todo } from "@models/todo";
+import { selectAllTodos, selectShownType } from "store/selectors";
+import { ShownType } from "store/types";
+import { Todo } from "models/todo";
 
 import { TodoItem } from "./TodoItem";
-import classes from "./TodosList.module.css";
+import classes from "./TodoList.module.css";
 
 export const TodoList: FC = () => {
   const allTodos = useSelector(selectAllTodos);

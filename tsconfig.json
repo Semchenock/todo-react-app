@@ -17,10 +17,10 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "@assets/*": ["assets/*"],
-      "@components/*": ["components/*"],
-      "@models/*": ["models/*"],
-      "@store/*": ["store/*"]
+      "assets/*": ["assets/*"],
+      "components/*": ["components/*"],
+      "models/*": ["models/*"],
+      "store/*": ["store/*"]
     }
   },
   "include": ["src"]

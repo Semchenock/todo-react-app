@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import circle from "@assets/img/circle.png";
-import checkMark from "@assets/img/check-mark.png";
+import circle from "assets/img/circle.png";
+import checkMark from "assets/img/check-mark.png";
 
 import classes from "./DoneBtn.module.css";
 

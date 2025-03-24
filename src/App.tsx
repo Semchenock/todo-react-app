@@ -1,8 +1,8 @@
 import { FC } from "react";
 
-import { TodoForm } from "@components/TodoForm";
-import { TodoList } from "@components/TodoList";
-import { TodoNav } from "@components/TodoNav";
+import { TodoForm } from "components/TodoForm";
+import { TodoList } from "components/TodoList";
+import { TodoNav } from "components/TodoNav";
 
 import classes from "./App.module.css";
 

@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { render as rtlRender, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
-import store from "@store/index";
+import store from "store/index";
 
 import { TodoList } from "./TodoList";
 

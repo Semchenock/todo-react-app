@@ -3,8 +3,8 @@ import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Provider } from "react-redux";
 
-import store from "@store/index";
-import { TodoList } from "@components/TodoList";
+import store from "store/index";
+import { TodoList } from "components/TodoList";
 
 import { TodoForm } from "./TodoForm";
 

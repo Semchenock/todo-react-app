@@ -1,10 +1,10 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectAllTodos, selectShownType } from "@store/selectors";
-import { todosActions } from "@store/actions";
+import { selectAllTodos, selectShownType } from "store/selectors";
+import { todosActions } from "store/actions";
 
 import classes from "./TodoNav.module.css";
-import { ShownType } from "@store/types";
+import { ShownType } from "store/types";
 
 /** Component filter tasks */
 export const TodoNav = () => {

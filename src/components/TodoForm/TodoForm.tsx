@@ -1,8 +1,8 @@
 import { ChangeEvent, FC, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { todosActions } from "@store/actions";
-import icon from "@assets/img/down-chevron.png";
+import { todosActions } from "store/actions";
+import icon from "assets/img/down-chevron.png";
 
 import classes from "./TodoForm.module.css";
 

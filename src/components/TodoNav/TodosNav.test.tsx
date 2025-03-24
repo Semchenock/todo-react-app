@@ -1,46 +1,48 @@
+import { ReactNode } from "react";
+import { Provider } from "react-redux";
 import { render as rtlRender, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import React from "react";
-import { Provider } from "react-redux";
-import store from "../store";
-import TodosList from "./TodosList";
-import TodosNav from "./TodosNav";
 
-const render = (component: React.ReactNode) => {
+import { TodoList } from "@components/TodoList";
+import store from "@store/index";
+
+import { TodoNav } from "./TodoNav";
+
+const render = (component: ReactNode) => {
   rtlRender(<Provider store={store}>{component}</Provider>);
 };
-describe("TodosNav component", () => {
+describe("TodoNav component", () => {
   test("all tasks shown by default", () => {
     render(
       <>
-        <TodosList />
-        <TodosNav />
+        <TodoList />
+        <TodoNav />
       </>
     );
     const tasks = screen.getAllByTestId("task");
     expect(tasks).toHaveLength(3);
   });
-  test("complited tasks shown properly", () => {
+  test("completed tasks shown properly", () => {
     render(
       <>
-        <TodosList />
-        <TodosNav />
+        <TodoList />
+        <TodoNav />
       </>
     );
-    const btns = screen.getAllByTestId("complite togler");
-    const complitedBtn = screen.getByText("Complited");
+    const btns = screen.getAllByTestId("complete toggler");
+    const completedBtn = screen.getByText("Completed");
     const tasks = screen.getAllByTestId("task");
     userEvent.click(btns[0]);
     expect(tasks).toHaveLength(3);
-    userEvent.click(complitedBtn);
-    const complitedTasks = screen.getAllByTestId("task");
-    expect(complitedTasks).toHaveLength(1);
+    userEvent.click(completedBtn);
+    const completedTasks = screen.getAllByTestId("task");
+    expect(completedTasks).toHaveLength(1);
   });
   test("active tasks shown properly", () => {
     render(
       <>
-        <TodosList />
-        <TodosNav />
+        <TodoList />
+        <TodoNav />
       </>
     );
     const activeBtn = screen.getByText("Active");
@@ -51,21 +53,21 @@ describe("TodosNav component", () => {
   test("left active shown properly", () => {
     render(
       <>
-        <TodosList />
-        <TodosNav />
+        <TodoList />
+        <TodoNav />
       </>
     );
     const leftActive = screen.getByText("2 items left");
     expect(leftActive).toBeInTheDocument();
   });
-  test("complited items deleted when button was clicked", () => {
+  test("completed items deleted when button was clicked", () => {
     render(
       <>
-        <TodosList />
-        <TodosNav />
+        <TodoList />
+        <TodoNav />
       </>
     );
-    const cleanBtn = screen.getByText("Clear complited");
+    const cleanBtn = screen.getByText("Clear completed");
     const allBtn = screen.getByText("All");
     userEvent.click(cleanBtn);
     userEvent.click(allBtn);

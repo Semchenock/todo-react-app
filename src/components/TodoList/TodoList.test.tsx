@@ -1,21 +1,23 @@
+import { ReactNode } from "react";
+import { Provider } from "react-redux";
 import { render as rtlRender, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import React from "react";
-import { Provider } from "react-redux";
-import store from "../store";
-import TodosList from "./TodosList";
 
-const render = (component: React.ReactNode) => {
+import store from "@store/index";
+
+import { TodoList } from "./TodoList";
+
+const render = (component: ReactNode) => {
   rtlRender(<Provider store={store}>{component}</Provider>);
 };
 describe("TodosList component", () => {
   test("renders default tasks properly", () => {
-    render(<TodosList />);
+    render(<TodoList />);
     const task = screen.getByText("Тестовое задание");
     expect(task).toBeInTheDocument();
   });
-  test("if toggle button was clicked task become complited", () => {
-    render(<TodosList />);
+  test("if toggle button was clicked task become completed", () => {
+    render(<TodoList />);
     const btns = screen.getAllByRole("button");
     const imgsBefore = screen.getAllByAltText("not done");
     expect(imgsBefore[0]).toBeInTheDocument();

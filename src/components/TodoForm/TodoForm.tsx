@@ -1,23 +1,31 @@
-import React, { useState } from "react";
-import { useAppDispatch } from "../hooks";
-import { todosActions } from "../store/todos";
+import { ChangeEvent, FC, FormEvent, useState } from "react";
+import { useDispatch } from "react-redux";
+
+import { todosActions } from "@store/actions";
+import icon from "@assets/img/down-chevron.png";
+
 import classes from "./TodoForm.module.css";
-import icon from "../assets/img/down-chevron.png";
-const TodoForm = () => {
-  const dispatch = useAppDispatch();
-  const [taskInputValue, setTaskInputValue] = useState("");
+
+/** Component Create New Task */
+export const TodoForm: FC = () => {
+  const dispatch = useDispatch();
+
+  const [taskInputValue, setTaskInputValue] = useState<string>("");
   const isTaskInputValid = taskInputValue.trim() !== "";
-  const submitHandler = (event: React.FormEvent) => {
+
+  const handleSubmit = (event: FormEvent): void => {
     event.preventDefault();
     const enteredText = taskInputValue.trim();
     dispatch(todosActions.add(enteredText));
     setTaskInputValue("");
   };
-  const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>): void => {
     setTaskInputValue(event.target.value);
   };
+
   return (
-    <form onSubmit={submitHandler} className={classes.form}>
+    <form onSubmit={handleSubmit} className={classes.form}>
       <button disabled={!isTaskInputValid} type="submit" data-testid="add">
         <img src={icon} alt="Add" />
       </button>
@@ -27,7 +35,7 @@ const TodoForm = () => {
         id="task"
         autoComplete="off"
         placeholder="What needs to be done?"
-        onChange={changeHandler}
+        onChange={handleChange}
         value={taskInputValue}
       />
       <input
@@ -36,10 +44,9 @@ const TodoForm = () => {
         id="task"
         autoComplete="off"
         placeholder="New todo..."
-        onChange={changeHandler}
+        onChange={handleChange}
         value={taskInputValue}
       />
     </form>
   );
 };
-export default TodoForm;

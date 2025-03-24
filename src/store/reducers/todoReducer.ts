@@ -1,23 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { RootState } from "./index";
-import Todo from "../models/todo";
-const DUMMY_TODOS = [
-  new Todo("Тестовое задание"),
-  new Todo("Прекрасный код"),
-  new Todo("Покрытие тестами"),
-];
-const initialState = {
-  allTodos: DUMMY_TODOS,
-  shownType: "all",
-};
-const todosSlice = createSlice({
+
+import { Todo } from "@models/todo";
+
+import { initialState } from "./constants";
+
+export const todosSlice = createSlice({
   name: "todos",
   initialState,
   reducers: {
+    /** add new task action */
     add(state, action: PayloadAction<string>) {
       const newTodo = new Todo(action.payload);
       state.allTodos = [newTodo, ...state.allTodos];
     },
+
+    /** toggle task isDone action */
     toggleTask(state, action: PayloadAction<string>) {
       const selectedTodoIndex = state.allTodos.findIndex((item) => {
         return item.id === action.payload;
@@ -27,14 +24,15 @@ const todosSlice = createSlice({
         !newAllTodosState[selectedTodoIndex].isDone;
       state.allTodos = newAllTodosState;
     },
-    deleteComplited(state) {
+
+    /** delete all tasks with isDone === true action */
+    deleteCompleted(state) {
       state.allTodos = state.allTodos.filter((todo) => !todo.isDone);
     },
+
+    /** set filter for tasks action */
     changeShownType(state, action: PayloadAction<string>) {
       state.shownType = action.payload;
     },
   },
 });
-export const todosActions = todosSlice.actions;
-export const selectAllTodos = (state: RootState) => state.todos.allTodos;
-export default todosSlice.reducer;

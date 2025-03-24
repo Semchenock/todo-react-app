@@ -2,15 +2,17 @@ import { render as rtlRender, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import React from "react";
 import { Provider } from "react-redux";
-import store from "../store";
-import TodoForm from "../components/TodoForm";
-import TodosList from "../components/TodosList";
+
+import store from "@store/index";
+import { TodoList } from "@components/TodoList";
+
+import { TodoForm } from "./TodoForm";
 
 const render = (component: React.ReactNode) => {
   rtlRender(<Provider store={store}>{component}</Provider>);
 };
 describe("TodoForm component", () => {
-  test("button is disebled with no input", () => {
+  test("button is disabled with no input", () => {
     render(<TodoForm />);
     const button = screen.getByRole("button");
     expect(button).toHaveAttribute("disabled");
@@ -29,11 +31,11 @@ describe("TodoForm component", () => {
     userEvent.type(input, "Test");
     expect(button).not.toHaveAttribute("disabled");
   });
-  test("task added when form submited", () => {
+  test("task added when form submitted", () => {
     render(
       <>
         <TodoForm />
-        <TodosList />
+        <TodoList />
       </>
     );
     const input = screen.getByPlaceholderText("What needs to be done?");
